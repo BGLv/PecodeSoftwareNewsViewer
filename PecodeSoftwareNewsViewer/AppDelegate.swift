@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let newsService = NewsService()
+        /*let newsService = NewsService()
         newsService.getEveryNewsSearched(byString: "Росія утримує на своїй території") { (articles) in
             print(articles!)
-        }
+        }*/
         
         return true
     }
