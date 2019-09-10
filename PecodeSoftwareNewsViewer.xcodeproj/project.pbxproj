@@ -17,7 +17,7 @@
 		8379AA4F2327D860004BC27E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA4E2327D860004BC27E /* NetworkProcessor.swift */; };
 		8379AA522327E789004BC27E /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA512327E789004BC27E /* NewsService.swift */; };
 		8379AA542327F32F004BC27E /* newsServiceSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8379AA532327F32F004BC27E /* newsServiceSettings.plist */; };
-		8379AA562327FDA0004BC27E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA552327FDA0004BC27E /* News.swift */; };
+		8379AA562327FDA0004BC27E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA552327FDA0004BC27E /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		8379AA4E2327D860004BC27E /* NetworkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
 		8379AA512327E789004BC27E /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		8379AA532327F32F004BC27E /* newsServiceSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = newsServiceSettings.plist; sourceTree = "<group>"; };
-		8379AA552327FDA0004BC27E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		8379AA552327FDA0004BC27E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +140,7 @@
 				8379AA4E2327D860004BC27E /* NetworkProcessor.swift */,
 				8379AA512327E789004BC27E /* NewsService.swift */,
 				8379AA532327F32F004BC27E /* newsServiceSettings.plist */,
-				8379AA552327FDA0004BC27E /* News.swift */,
+				8379AA552327FDA0004BC27E /* Article.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 			files = (
 				8379AA4F2327D860004BC27E /* NetworkProcessor.swift in Sources */,
 				8379AA232327D83F004BC27E /* ViewController.swift in Sources */,
-				8379AA562327FDA0004BC27E /* News.swift in Sources */,
+				8379AA562327FDA0004BC27E /* Article.swift in Sources */,
 				8379AA522327E789004BC27E /* NewsService.swift in Sources */,
 				8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */,
 			);
