@@ -14,6 +14,7 @@
 		8379AA2B2327D841004BC27E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8379AA292327D841004BC27E /* LaunchScreen.storyboard */; };
 		8379AA362327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA352327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift */; };
 		8379AA412327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA402327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift */; };
+		8379AA4F2327D860004BC27E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA4E2327D860004BC27E /* NetworkProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8379AA3C2327D841004BC27E /* PecodeSoftwareNewsViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PecodeSoftwareNewsViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8379AA402327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PecodeSoftwareNewsViewerUITests.swift; sourceTree = "<group>"; };
 		8379AA422327D841004BC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8379AA4E2327D860004BC27E /* NetworkProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				8379AA272327D841004BC27E /* Assets.xcassets */,
 				8379AA292327D841004BC27E /* LaunchScreen.storyboard */,
 				8379AA2C2327D841004BC27E /* Info.plist */,
+				8379AA502327E57C004BC27E /* Model */,
 			);
 			path = PecodeSoftwareNewsViewer;
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				8379AA422327D841004BC27E /* Info.plist */,
 			);
 			path = PecodeSoftwareNewsViewerUITests;
+			sourceTree = "<group>";
+		};
+		8379AA502327E57C004BC27E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8379AA4E2327D860004BC27E /* NetworkProcessor.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8379AA4F2327D860004BC27E /* NetworkProcessor.swift in Sources */,
 				8379AA232327D83F004BC27E /* ViewController.swift in Sources */,
 				8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */,
 			);
