@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA202327D83F004BC27E /* AppDelegate.swift */; };
+		8379AA232327D83F004BC27E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA222327D83F004BC27E /* ViewController.swift */; };
+		8379AA262327D83F004BC27E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8379AA242327D83F004BC27E /* Main.storyboard */; };
+		8379AA282327D841004BC27E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8379AA272327D841004BC27E /* Assets.xcassets */; };
+		8379AA2B2327D841004BC27E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8379AA292327D841004BC27E /* LaunchScreen.storyboard */; };
+		8379AA362327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA352327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift */; };
+		8379AA412327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA402327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8379AA322327D841004BC27E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8379AA152327D83F004BC27E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8379AA1C2327D83F004BC27E;
+			remoteInfo = PecodeSoftwareNewsViewer;
+		};
+		8379AA3D2327D841004BC27E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8379AA152327D83F004BC27E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8379AA1C2327D83F004BC27E;
+			remoteInfo = PecodeSoftwareNewsViewer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8379AA1D2327D83F004BC27E /* PecodeSoftwareNewsViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PecodeSoftwareNewsViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8379AA202327D83F004BC27E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8379AA222327D83F004BC27E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8379AA252327D83F004BC27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8379AA272327D841004BC27E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8379AA2A2327D841004BC27E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8379AA2C2327D841004BC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8379AA312327D841004BC27E /* PecodeSoftwareNewsViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PecodeSoftwareNewsViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8379AA352327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PecodeSoftwareNewsViewerTests.swift; sourceTree = "<group>"; };
+		8379AA372327D841004BC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8379AA3C2327D841004BC27E /* PecodeSoftwareNewsViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PecodeSoftwareNewsViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8379AA402327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PecodeSoftwareNewsViewerUITests.swift; sourceTree = "<group>"; };
+		8379AA422327D841004BC27E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8379AA1A2327D83F004BC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA2E2327D841004BC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA392327D841004BC27E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8379AA142327D83F004BC27E = {
+			isa = PBXGroup;
+			children = (
+				8379AA1F2327D83F004BC27E /* PecodeSoftwareNewsViewer */,
+				8379AA342327D841004BC27E /* PecodeSoftwareNewsViewerTests */,
+				8379AA3F2327D841004BC27E /* PecodeSoftwareNewsViewerUITests */,
+				8379AA1E2327D83F004BC27E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8379AA1E2327D83F004BC27E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8379AA1D2327D83F004BC27E /* PecodeSoftwareNewsViewer.app */,
+				8379AA312327D841004BC27E /* PecodeSoftwareNewsViewerTests.xctest */,
+				8379AA3C2327D841004BC27E /* PecodeSoftwareNewsViewerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8379AA1F2327D83F004BC27E /* PecodeSoftwareNewsViewer */ = {
+			isa = PBXGroup;
+			children = (
+				8379AA202327D83F004BC27E /* AppDelegate.swift */,
+				8379AA222327D83F004BC27E /* ViewController.swift */,
+				8379AA242327D83F004BC27E /* Main.storyboard */,
+				8379AA272327D841004BC27E /* Assets.xcassets */,
+				8379AA292327D841004BC27E /* LaunchScreen.storyboard */,
+				8379AA2C2327D841004BC27E /* Info.plist */,
+			);
+			path = PecodeSoftwareNewsViewer;
+			sourceTree = "<group>";
+		};
+		8379AA342327D841004BC27E /* PecodeSoftwareNewsViewerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8379AA352327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift */,
+				8379AA372327D841004BC27E /* Info.plist */,
+			);
+			path = PecodeSoftwareNewsViewerTests;
+			sourceTree = "<group>";
+		};
+		8379AA3F2327D841004BC27E /* PecodeSoftwareNewsViewerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8379AA402327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift */,
+				8379AA422327D841004BC27E /* Info.plist */,
+			);
+			path = PecodeSoftwareNewsViewerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8379AA1C2327D83F004BC27E /* PecodeSoftwareNewsViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8379AA452327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewer" */;
+			buildPhases = (
+				8379AA192327D83F004BC27E /* Sources */,
+				8379AA1A2327D83F004BC27E /* Frameworks */,
+				8379AA1B2327D83F004BC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PecodeSoftwareNewsViewer;
+			productName = PecodeSoftwareNewsViewer;
+			productReference = 8379AA1D2327D83F004BC27E /* PecodeSoftwareNewsViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8379AA302327D841004BC27E /* PecodeSoftwareNewsViewerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8379AA482327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewerTests" */;
+			buildPhases = (
+				8379AA2D2327D841004BC27E /* Sources */,
+				8379AA2E2327D841004BC27E /* Frameworks */,
+				8379AA2F2327D841004BC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8379AA332327D841004BC27E /* PBXTargetDependency */,
+			);
+			name = PecodeSoftwareNewsViewerTests;
+			productName = PecodeSoftwareNewsViewerTests;
+			productReference = 8379AA312327D841004BC27E /* PecodeSoftwareNewsViewerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8379AA3B2327D841004BC27E /* PecodeSoftwareNewsViewerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8379AA4B2327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewerUITests" */;
+			buildPhases = (
+				8379AA382327D841004BC27E /* Sources */,
+				8379AA392327D841004BC27E /* Frameworks */,
+				8379AA3A2327D841004BC27E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8379AA3E2327D841004BC27E /* PBXTargetDependency */,
+			);
+			name = PecodeSoftwareNewsViewerUITests;
+			productName = PecodeSoftwareNewsViewerUITests;
+			productReference = 8379AA3C2327D841004BC27E /* PecodeSoftwareNewsViewerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8379AA152327D83F004BC27E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Bogdan Lviv";
+				TargetAttributes = {
+					8379AA1C2327D83F004BC27E = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					8379AA302327D841004BC27E = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 8379AA1C2327D83F004BC27E;
+					};
+					8379AA3B2327D841004BC27E = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 8379AA1C2327D83F004BC27E;
+					};
+				};
+			};
+			buildConfigurationList = 8379AA182327D83F004BC27E /* Build configuration list for PBXProject "PecodeSoftwareNewsViewer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8379AA142327D83F004BC27E;
+			productRefGroup = 8379AA1E2327D83F004BC27E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8379AA1C2327D83F004BC27E /* PecodeSoftwareNewsViewer */,
+				8379AA302327D841004BC27E /* PecodeSoftwareNewsViewerTests */,
+				8379AA3B2327D841004BC27E /* PecodeSoftwareNewsViewerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8379AA1B2327D83F004BC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8379AA2B2327D841004BC27E /* LaunchScreen.storyboard in Resources */,
+				8379AA282327D841004BC27E /* Assets.xcassets in Resources */,
+				8379AA262327D83F004BC27E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA2F2327D841004BC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA3A2327D841004BC27E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8379AA192327D83F004BC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8379AA232327D83F004BC27E /* ViewController.swift in Sources */,
+				8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA2D2327D841004BC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8379AA362327D841004BC27E /* PecodeSoftwareNewsViewerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8379AA382327D841004BC27E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8379AA412327D841004BC27E /* PecodeSoftwareNewsViewerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8379AA332327D841004BC27E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8379AA1C2327D83F004BC27E /* PecodeSoftwareNewsViewer */;
+			targetProxy = 8379AA322327D841004BC27E /* PBXContainerItemProxy */;
+		};
+		8379AA3E2327D841004BC27E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8379AA1C2327D83F004BC27E /* PecodeSoftwareNewsViewer */;
+			targetProxy = 8379AA3D2327D841004BC27E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8379AA242327D83F004BC27E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8379AA252327D83F004BC27E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8379AA292327D841004BC27E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8379AA2A2327D841004BC27E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8379AA432327D841004BC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8379AA442327D841004BC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8379AA462327D841004BC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8379AA472327D841004BC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8379AA492327D841004BC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PecodeSoftwareNewsViewer.app/PecodeSoftwareNewsViewer";
+			};
+			name = Debug;
+		};
+		8379AA4A2327D841004BC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PecodeSoftwareNewsViewer.app/PecodeSoftwareNewsViewer";
+			};
+			name = Release;
+		};
+		8379AA4C2327D841004BC27E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PecodeSoftwareNewsViewer;
+			};
+			name = Debug;
+		};
+		8379AA4D2327D841004BC27E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PecodeSoftwareNewsViewerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.lecture.PecodeSoftwareNewsViewerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PecodeSoftwareNewsViewer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8379AA182327D83F004BC27E /* Build configuration list for PBXProject "PecodeSoftwareNewsViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8379AA432327D841004BC27E /* Debug */,
+				8379AA442327D841004BC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8379AA452327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8379AA462327D841004BC27E /* Debug */,
+				8379AA472327D841004BC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8379AA482327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8379AA492327D841004BC27E /* Debug */,
+				8379AA4A2327D841004BC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8379AA4B2327D841004BC27E /* Build configuration list for PBXNativeTarget "PecodeSoftwareNewsViewerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8379AA4C2327D841004BC27E /* Debug */,
+				8379AA4D2327D841004BC27E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8379AA152327D83F004BC27E /* Project object */;
+}
