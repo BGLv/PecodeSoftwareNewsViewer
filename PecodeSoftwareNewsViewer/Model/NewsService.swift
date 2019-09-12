@@ -143,9 +143,10 @@ class NewsService {
                         let title = articleFromJSON["title"] as? String,
                         let description = articleFromJSON["description"] as? String,
                         let urlToImage = articleFromJSON["urlToImage"] as? String,
+                        let articleURL = articleFromJSON["url"] as? String,
                         let publishedAt = articleFromJSON["publishedAt"] as? String{
                         let author = (articleFromJSON["author"] as? String) ?? "unknown"
-                        articles.append(Article(fromSource: source, byAuthor: author, byTitle: title, byDescription: description, byImageURL: urlToImage, byPublishedAt: publishedAt, totalArticles: totalArticles))
+                        articles.append(Article(fromSource: source, byAuthor: author, byTitle: title, byDescription: description, byImageURL: urlToImage, byArticleURL: articleURL, byPublishedAt: publishedAt, totalArticles: totalArticles))
                     }
                 }
             }

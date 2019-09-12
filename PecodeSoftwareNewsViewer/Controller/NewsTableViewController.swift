@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices // for SFSafariViewController
 
 class NewsTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -238,8 +239,29 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let article = articles?[indexPath.row]{
+            self.showWebsite(urlToSite: article.articleURL ?? "https://www.google.com")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         ArticleTableViewCell.clearArticlesImagesCache()
     }
     
+    // MARK: - Show Webpage with SFSafariViewController
+    func showWebsite(urlToSite:String){
+        if let url = URL.init(string: urlToSite){
+            let webVC = SFSafariViewController(url: url)
+            webVC.delegate = self
+            self.present(webVC, animated: true, completion: nil)
+        }
+    }
+    
+}
+
+extension NewsTableViewController : SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

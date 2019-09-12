@@ -14,15 +14,17 @@ struct Article {
     let title: String?
     let description: String?
     let imageURL: String?
+    let articleURL: String?
     let publishedAt: String?
     let totalArticles: Int?
     
-    init(fromSource source: [String:String?]?, byAuthor author: String?, byTitle title: String?, byDescription description: String?, byImageURL imageURL: String?, byPublishedAt publishedAt: String?, totalArticles: Int?) {
+    init(fromSource source: [String:String?]?, byAuthor author: String?, byTitle title: String?, byDescription description: String?, byImageURL imageURL: String?, byArticleURL articleURL:String?, byPublishedAt publishedAt: String?, totalArticles: Int?) {
         self.source = source
         self.author = author
         self.title = title
         self.description = description
         self.imageURL = imageURL
+        self.articleURL=articleURL
         self.publishedAt=publishedAt
         self.totalArticles=totalArticles
     }

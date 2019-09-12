@@ -47,6 +47,8 @@ class ArticleTableViewCell: UITableViewCell {
         if let imageFromDictionary = ArticleTableViewCell.imagesDictionary[strUrlToImage]{
             self.articleImage.image = imageFromDictionary
         }else{
+            self.articleImage.image = nil
+            self.loadIndicator.startAnimating()
             if let imageURL = URL(string: strUrlToImage){
                 let urlSession = URLSession(configuration: URLSessionConfiguration.default)
                 let task = urlSession.dataTask(with: imageURL) { (data, response, error) in
@@ -61,7 +63,9 @@ class ArticleTableViewCell: UITableViewCell {
                         
                     }
                     
-                ArticleTableViewCell.imagesDictionary[strUrlToImage]=UIImage(data: data)?.resized(toWidth: 200.0)
+                    if let image=UIImage(data: data){
+                        ArticleTableViewCell.imagesDictionary[strUrlToImage]=image.resized(toWidth: 200.0)
+                    }
 
                     DispatchQueue.main.async {
                         //self.articleImage?.clipsToBounds = true
