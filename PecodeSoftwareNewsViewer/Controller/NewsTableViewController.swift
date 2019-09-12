@@ -10,8 +10,12 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
+    @IBOutlet var searchBar: UISearchBar!
+    
     private var articles: [Article]?
-    private var imagesDictionary: [Int:UIImage] = [:]
+    
+    private var category: String?
+    private var country: String = "ua"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +25,23 @@ class NewsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.tableHeaderView = UIView()
+        tableView.estimatedSectionHeaderHeight = 50
         
         let newsService = NewsService()
         newsService.getTopNews { [weak self] (articles) in
-            self?.articles = articles
+            self?.articles = articles?.sorted(by: { (earlierAricle, laterArticle) -> Bool in
+                let dateFormater = DateFormatter()
+                dateFormater.dateFormat="yyyy-MM-dd'T'HH:mm:ss'Z'"
+                let earlierArticleDate = dateFormater.date(from: earlierAricle.publishedAt!)
+                let laterArticleDate = dateFormater.date(from: laterArticle.publishedAt!)
+                let distanceBetweenDates = laterArticleDate?.timeIntervalSince(earlierArticleDate!)
+                if distanceBetweenDates! <= 0.0 {
+                    return false
+                }else{
+                    return true
+                }
+            })
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -53,89 +70,74 @@ class NewsTableViewController: UITableViewController {
         // Configure the cell...
         cell.article=articles?[indexPath.row]
         
-        if let imageForCellFromDict = self.imagesDictionary[indexPath.row]{
-            cell.articleImage.image=imageForCellFromDict
-            //cell.loadIndicator.stopAnimating()
-        }else{
-            if let imageURL = URL(string: (articles?[indexPath.row].imageURL)!){
-                let imageDownloadSession = URLSession(configuration: URLSessionConfiguration.default)
-                let task=imageDownloadSession.dataTask(with: imageURL) { [weak self] (data, response, error) in
-                    guard let data = data, nil==error else {return}
-                    self?.imagesDictionary[indexPath.row]=UIImage(data: data)?.resized(toWidth: 200)
-                    DispatchQueue.main.async {[weak self] in
-                        //self?.tableView.reloadData()
-                        cell.articleImage.image = self?.imagesDictionary[indexPath.row]
-                        cell.loadIndicator.stopAnimating()
-                    }
-                    
-                }
-                task.resume()
-                
-            }
-        }
         
         return cell
     }
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return searchBar
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    @IBAction func selectCategory(_ sender: Any) {
+        /*let categorys = ["entertaiment","general","health","science","sports","technology"]*/
+        
+        let actionSelectCategorySheet = UIAlertController(title: "Filter option", message: "Please select filtered category", preferredStyle: .actionSheet)
+        
+        let entertaimentSelectedAction = UIAlertAction(title: "entertaiment", style: .default) { [weak self] (action) in
+            self?.category = "entertaiment"
+        }
+        
+        let generalSelectedAction = UIAlertAction(title: "general", style: .default) { [weak self] (action) in
+            self?.category = "general"
+        }
+        
+        let healthSelectedAction = UIAlertAction(title: "health", style: .default) { [weak self] (action) in
+            self?.category = "health"
+        }
+        
+        let scienceSelectedAction = UIAlertAction(title: "science", style: .default) { [weak self] (action) in
+            self?.category = "science"
+        }
+        
+        let sportsSelectedAction = UIAlertAction(title: "sports", style: .default) { [weak self] (action) in
+            self?.category = "sports"
+        }
+        
+        let technologySelectedAction = UIAlertAction(title: "technology", style: .default) { [weak self] (action) in
+            self?.category = "technology"
+        }
+        
+        let cancel = UIAlertAction(title: "Reset", style: .cancel) { [weak self] (action) in
+            self?.category = nil
+        }
+        
+        actionSelectCategorySheet.addAction(entertaimentSelectedAction)
+        actionSelectCategorySheet.addAction(generalSelectedAction)
+        actionSelectCategorySheet.addAction(healthSelectedAction)
+        actionSelectCategorySheet.addAction(scienceSelectedAction)
+        actionSelectCategorySheet.addAction(sportsSelectedAction)
+        actionSelectCategorySheet.addAction(technologySelectedAction)
+        actionSelectCategorySheet.addAction(cancel)
+        
+        self.present(actionSelectCategorySheet, animated: true, completion: nil)
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-}
-
-extension UIImage {
-    func resized(withPercentage percentage: CGFloat) -> UIImage? {
-        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
-        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
-            _ in draw(in: CGRect(origin: .zero, size: canvas))
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectCountrySegue" {
+            if let selectCountryController = segue.destination as? SelectCountryViewController{
+                selectCountryController.pickerViewInfoArray = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
+                let pathToSettings = Bundle.main.path(forResource: "newsServiceSettings", ofType: "plist")
+                let settingsDictionary = NSDictionary(contentsOf: URL.init(fileURLWithPath: pathToSettings!)) as! [String:String]
+                
+                selectCountryController.pickerViewSelectedCountry = settingsDictionary["country"]!
+            }
         }
     }
-    func resized(toWidth width: CGFloat) -> UIImage? {
-        let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-        return UIGraphicsImageRenderer(size: canvas, format: imageRendererFormat).image {
-            _ in draw(in: CGRect(origin: .zero, size: canvas))
-        }
-    }
+    
 }

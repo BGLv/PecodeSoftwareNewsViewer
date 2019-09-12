@@ -19,6 +19,7 @@
 		8379AA562327FDA0004BC27E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA552327FDA0004BC27E /* Article.swift */; };
 		8379AA5923284EFA004BC27E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5823284EFA004BC27E /* ArticleTableViewCell.swift */; };
 		8379AA5B2328508E004BC27E /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5A2328508E004BC27E /* NewsTableViewController.swift */; };
+		8379AA5E232A2B6B004BC27E /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8379AA552327FDA0004BC27E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8379AA5823284EFA004BC27E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		8379AA5A2328508E004BC27E /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				8379AA5A2328508E004BC27E /* NewsTableViewController.swift */,
+				8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				8379AA562327FDA0004BC27E /* Article.swift in Sources */,
 				8379AA522327E789004BC27E /* NewsService.swift in Sources */,
 				8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */,
+				8379AA5E232A2B6B004BC27E /* SelectCountryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
