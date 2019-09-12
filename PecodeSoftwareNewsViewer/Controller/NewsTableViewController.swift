@@ -17,7 +17,6 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var sourcesButton: UIBarButtonItem!
     
     
-    
     ////Data from API
     private var articles: [Article]?
     private var sources: [Source]?
@@ -33,6 +32,7 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
     private var country: String?
     private var sourceID: String?
     //
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,17 +42,30 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        
         searchBar.delegate = self
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshArticles), for: .valueChanged)
+        tableView.addSubview(refreshControl!)
         
         tableView.tableHeaderView = UIView()
         tableView.estimatedSectionHeaderHeight = 50
         
-        reloadDataFromApi(stringToSearch: nil, addPage: false)
+        reloadDataFromApi(stringToSearch: nil, addPage: false, completionForRefresh: nil)
         
         let newsService = NewsService()
         newsService.getAvaliableSources { (sources) in
             self.sources=sources
         }
+        
+    }
+    
+    @objc func refreshArticles(){
+        self.reloadDataFromApi(stringToSearch: self.searchBar.text, addPage: false, completionForRefresh: {
+            [weak self] () -> Void in
+            self?.refreshControl?.endRefreshing()
+        })
         
     }
     
@@ -97,37 +110,37 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
         
         let entertaimentSelectedAction = UIAlertAction(title: "entertaiment", style: .default) { [weak self] (action) in
             self?.category = "entertaiment"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false, completionForRefresh: nil)
         }
         
         let generalSelectedAction = UIAlertAction(title: "general", style: .default) { [weak self] (action) in
             self?.category = "general"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false, completionForRefresh: nil)
         }
         
         let healthSelectedAction = UIAlertAction(title: "health", style: .default) { [weak self] (action) in
             self?.category = "health"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false, completionForRefresh: nil)
         }
         
         let scienceSelectedAction = UIAlertAction(title: "science", style: .default) { [weak self] (action) in
             self?.category = "science"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false, completionForRefresh: nil)
         }
         
         let sportsSelectedAction = UIAlertAction(title: "sports", style: .default) { [weak self] (action) in
             self?.category = "sports"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false, completionForRefresh: nil)
         }
         
         let technologySelectedAction = UIAlertAction(title: "technology", style: .default) { [weak self] (action) in
             self?.category = "technology"
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text,addPage: false, completionForRefresh: nil)
         }
         
         let cancel = UIAlertAction(title: "Reset", style: .cancel) { [weak self] (action) in
             self?.category = nil
-            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false, completionForRefresh: nil)
         }
         
         actionSelectCategorySheet.addAction(entertaimentSelectedAction)
@@ -156,7 +169,7 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
                 selectCountryController.completion = {
                     [weak self](countryFromSelector:String) -> Void in
                     self?.country=countryFromSelector
-                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false, completionForRefresh: nil)
                 }
             }
         }
@@ -175,13 +188,13 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
                         self?.countryButton.isEnabled = false
                         self?.categoryButton.isEnabled = false
                     }
-                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false)
+                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text, addPage: false,completionForRefresh: nil)
                 }
             }
         }
     }
     
-    private func reloadDataFromApi(stringToSearch: String?,addPage: Bool){
+    private func reloadDataFromApi(stringToSearch: String?,addPage: Bool, completionForRefresh:(()->Void)?){
         
         if addPage==false{
             self.articles = []
@@ -214,6 +227,9 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
                 }
                 self?.totalArticles = sortedArticlesFromSource.first?.totalArticles
                 DispatchQueue.main.async {
+                    if let completion = completionForRefresh {
+                        completion()
+                    }
                     self?.tableView.reloadData()
                 }
             }
@@ -228,14 +244,14 @@ class NewsTableViewController: UITableViewController, UISearchBarDelegate {
                 page=Int(ceil(Float(articles.count)/Float((pageSize ?? defaultPageSize))))
                 if(page!<totalPages){
                     page!+=1
-                    reloadDataFromApi(stringToSearch: self.searchBar.text, addPage: true)
+                    reloadDataFromApi(stringToSearch: self.searchBar.text, addPage: true, completionForRefresh: nil)
                 }
             }
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.reloadDataFromApi(stringToSearch: self.searchBar.text, addPage: false)
+        self.reloadDataFromApi(stringToSearch: self.searchBar.text, addPage: false, completionForRefresh: nil)
         searchBar.resignFirstResponder()
     }
     
