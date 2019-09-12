@@ -17,8 +17,8 @@ extension NewsService {
         getAllAvaliableSources(byNetworkProcessor: networkProcessor, completion: completion)
     }
     
-    func getTopNews(byString string: String?,byCategory category:String?, byCountry country: String?, fromSourceID sourceID:String?,completion: @escaping ([Article]?)->Void){
-        let networkProcessor = NetworkProcessor(url: makeTopNewsURLComponent(stringToSearch: string, category: category, country: country, sourceID: sourceID).url!)
+    func getTopNews(byString string: String?,byCategory category:String?, byCountry country: String?, fromSourceID sourceID:String?,byPageSize pageSize:Int?,byPage page:Int?,completion: @escaping ([Article]?)->Void){
+        let networkProcessor = NetworkProcessor(url: makeTopNewsURLComponent(stringToSearch: string, category: category, country: country, sourceID: sourceID, pageSize:pageSize, page: page).url!)
         getNewsByNetworkProcessor(byNetworkProcessor: networkProcessor, completion: completion)
     }
     
@@ -69,7 +69,7 @@ class NewsService {
     }
     
     
-    private func makeTopNewsURLComponent(stringToSearch: String?, category:String?, country:String?, sourceID:String?) -> URLComponents{
+    private func makeTopNewsURLComponent(stringToSearch: String?, category:String?, country:String?, sourceID:String?, pageSize:Int?, page:Int?) -> URLComponents{
         var components = URLComponents()
         components.scheme = NewsAPI.scheme
         components.host = NewsAPI.host
@@ -80,6 +80,15 @@ class NewsService {
             URLQueryItem(name: (source != nil) ? "sources" : "country", value:source ?? country ?? NewsAPI.defaultCountry),
             URLQueryItem(name: "apiKey", value: NewsAPI.apiKey)
         ]
+        
+        if let pageSize = pageSize {
+            components.queryItems?.append(URLQueryItem(name: "pageSize", value: "\(pageSize)"))
+        }
+        
+        if let page = page {
+            components.queryItems?.append(URLQueryItem(name: "page", value: "\(page)"))
+
+        }
         
         if let category = category{
             if nil == source {
@@ -127,19 +136,20 @@ class NewsService {
         networkProcessor.downloadJSONFromUrl { (jsonDictionary) in
             // completion(jsonDictionary?["articles"] as? [[String : Any]])
             var articles: [Article] = [];
+            if let totalArticles = jsonDictionary?["totalResults"] as? Int {
             if let articlesFromJSON = jsonDictionary?["articles"] as? [[String : Any]] {
                 for articleFromJSON in articlesFromJSON {
                     if let source = articleFromJSON["source"] as? [String:String?],
-                        let author = articleFromJSON["author"] as? String,
                         let title = articleFromJSON["title"] as? String,
                         let description = articleFromJSON["description"] as? String,
                         let urlToImage = articleFromJSON["urlToImage"] as? String,
                         let publishedAt = articleFromJSON["publishedAt"] as? String{
-                        
-                        articles.append(Article(fromSource: source, byAuthor: author, byTitle: title, byDescription: description, byImageURL: urlToImage, byPublishedAt: publishedAt))
+                        let author = (articleFromJSON["author"] as? String) ?? "unknown"
+                        articles.append(Article(fromSource: source, byAuthor: author, byTitle: title, byDescription: description, byImageURL: urlToImage, byPublishedAt: publishedAt, totalArticles: totalArticles))
                     }
                 }
             }
+        }
             completion(articles)
         }
     }
