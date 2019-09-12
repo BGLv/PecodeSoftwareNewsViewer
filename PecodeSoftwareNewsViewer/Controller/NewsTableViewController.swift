@@ -8,14 +8,21 @@
 
 import UIKit
 
-class NewsTableViewController: UITableViewController {
+class NewsTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet weak var categoryButton: UIBarButtonItem!
+    @IBOutlet weak var countryButton: UIBarButtonItem!
+    @IBOutlet weak var sourcesButton: UIBarButtonItem!
     
+    ////Data from API
     private var articles: [Article]?
+    private var sources: [Source]?
+    ////////////////////
     
     private var category: String?
-    private var country: String = "ua"
+    private var country: String?
+    private var sourceID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,28 +32,18 @@ class NewsTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        searchBar.delegate = self
+        
         tableView.tableHeaderView = UIView()
         tableView.estimatedSectionHeaderHeight = 50
         
-        let newsService = NewsService()
-        newsService.getTopNews { [weak self] (articles) in
-            self?.articles = articles?.sorted(by: { (earlierAricle, laterArticle) -> Bool in
-                let dateFormater = DateFormatter()
-                dateFormater.dateFormat="yyyy-MM-dd'T'HH:mm:ss'Z'"
-                let earlierArticleDate = dateFormater.date(from: earlierAricle.publishedAt!)
-                let laterArticleDate = dateFormater.date(from: laterArticle.publishedAt!)
-                let distanceBetweenDates = laterArticleDate?.timeIntervalSince(earlierArticleDate!)
-                if distanceBetweenDates! <= 0.0 {
-                    return false
-                }else{
-                    return true
-                }
-            })
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
+        reloadDataFromApi(stringToSearch: nil)
         
+        let newsService = NewsService()
+        newsService.getAvaliableSources { (sources) in
+            self.sources=sources
+        }
         
     }
     
@@ -91,30 +88,37 @@ class NewsTableViewController: UITableViewController {
         
         let entertaimentSelectedAction = UIAlertAction(title: "entertaiment", style: .default) { [weak self] (action) in
             self?.category = "entertaiment"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let generalSelectedAction = UIAlertAction(title: "general", style: .default) { [weak self] (action) in
             self?.category = "general"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let healthSelectedAction = UIAlertAction(title: "health", style: .default) { [weak self] (action) in
             self?.category = "health"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let scienceSelectedAction = UIAlertAction(title: "science", style: .default) { [weak self] (action) in
             self?.category = "science"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let sportsSelectedAction = UIAlertAction(title: "sports", style: .default) { [weak self] (action) in
             self?.category = "sports"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let technologySelectedAction = UIAlertAction(title: "technology", style: .default) { [weak self] (action) in
             self?.category = "technology"
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         let cancel = UIAlertAction(title: "Reset", style: .cancel) { [weak self] (action) in
             self?.category = nil
+            self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
         }
         
         actionSelectCategorySheet.addAction(entertaimentSelectedAction)
@@ -132,12 +136,73 @@ class NewsTableViewController: UITableViewController {
         if segue.identifier == "selectCountrySegue" {
             if let selectCountryController = segue.destination as? SelectCountryViewController{
                 selectCountryController.pickerViewInfoArray = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph", "pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
-                let pathToSettings = Bundle.main.path(forResource: "newsServiceSettings", ofType: "plist")
-                let settingsDictionary = NSDictionary(contentsOf: URL.init(fileURLWithPath: pathToSettings!)) as! [String:String]
-                
-                selectCountryController.pickerViewSelectedCountry = settingsDictionary["country"]!
+                if let country = country {
+                    selectCountryController.pickerViewSelectedCountry = country
+                }else{
+                    let pathToSettings = Bundle.main.path(forResource: "newsServiceSettings", ofType: "plist")
+                    let settingsDictionary = NSDictionary(contentsOf: URL.init(fileURLWithPath: pathToSettings!)) as! [String:String]
+                    
+                    selectCountryController.pickerViewSelectedCountry = settingsDictionary["country"]!
+                }
+                selectCountryController.completion = {
+                    [weak self](countryFromSelector:String) -> Void in
+                    self?.country=countryFromSelector
+                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
+                }
             }
         }
+        
+        if segue.identifier == "selectSourceSegue" {
+            if let selectSourceController = segue.destination as? SelectSourceViewController{
+                selectSourceController.sources = self.sources
+                selectSourceController.pickerViewSelectedSourceID = self.sourceID
+                selectSourceController.completion = {
+                    [weak self](sourceIDFromSelector: String?) -> Void in
+                    self?.sourceID=sourceIDFromSelector
+                    if nil == self?.sourceID{
+                        self?.countryButton.isEnabled = true
+                        self?.categoryButton.isEnabled = true
+                    }else{
+                        self?.countryButton.isEnabled = false
+                        self?.categoryButton.isEnabled = false
+                    }
+                    self?.reloadDataFromApi(stringToSearch: self?.searchBar.text)
+                }
+            }
+        }
+    }
+    
+    private func reloadDataFromApi(stringToSearch: String?){
+        
+        let newsService = NewsService()
+        //newsService.country = country
+        newsService.getTopNews(byString:stringToSearch, byCategory: self.category, byCountry: self.country, fromSourceID: self.sourceID) { [weak self] (articles) in
+            self?.articles = articles?.sorted(by: { (earlierAricle, laterArticle) -> Bool in
+                let dateFormater = DateFormatter()
+                dateFormater.dateFormat="yyyy-MM-dd'T'HH:mm:ss'Z'"
+                if let earlierArticleDate = dateFormater.date(from: earlierAricle.publishedAt!),
+                    let laterArticleDate = dateFormater.date(from: laterArticle.publishedAt!){
+                    let distanceBetweenDates = laterArticleDate.timeIntervalSince(earlierArticleDate)
+                    if distanceBetweenDates <= 0.0 {
+                        return false
+                    }else{
+                        return true
+                    }
+                }else{return false}
+            })
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.reloadDataFromApi(stringToSearch: self.searchBar.text)
+        searchBar.resignFirstResponder()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        ArticleTableViewCell.clearArticlesImagesCache()
     }
     
 }

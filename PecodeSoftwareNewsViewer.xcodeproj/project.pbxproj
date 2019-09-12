@@ -20,6 +20,8 @@
 		8379AA5923284EFA004BC27E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5823284EFA004BC27E /* ArticleTableViewCell.swift */; };
 		8379AA5B2328508E004BC27E /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5A2328508E004BC27E /* NewsTableViewController.swift */; };
 		8379AA5E232A2B6B004BC27E /* SelectCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */; };
+		8379AA60232A78DF004BC27E /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA5F232A78DF004BC27E /* Source.swift */; };
+		8379AA62232A7E19004BC27E /* SelectSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8379AA61232A7E19004BC27E /* SelectSourceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		8379AA5823284EFA004BC27E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		8379AA5A2328508E004BC27E /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCountryViewController.swift; sourceTree = "<group>"; };
+		8379AA5F232A78DF004BC27E /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		8379AA61232A7E19004BC27E /* SelectSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSourceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				8379AA512327E789004BC27E /* NewsService.swift */,
 				8379AA532327F32F004BC27E /* newsServiceSettings.plist */,
 				8379AA552327FDA0004BC27E /* Article.swift */,
+				8379AA5F232A78DF004BC27E /* Source.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			children = (
 				8379AA5A2328508E004BC27E /* NewsTableViewController.swift */,
 				8379AA5D232A2B6B004BC27E /* SelectCountryViewController.swift */,
+				8379AA61232A7E19004BC27E /* SelectSourceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -299,11 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8379AA60232A78DF004BC27E /* Source.swift in Sources */,
 				8379AA5923284EFA004BC27E /* ArticleTableViewCell.swift in Sources */,
 				8379AA4F2327D860004BC27E /* NetworkProcessor.swift in Sources */,
 				8379AA5B2328508E004BC27E /* NewsTableViewController.swift in Sources */,
 				8379AA562327FDA0004BC27E /* Article.swift in Sources */,
 				8379AA522327E789004BC27E /* NewsService.swift in Sources */,
+				8379AA62232A7E19004BC27E /* SelectSourceViewController.swift in Sources */,
 				8379AA212327D83F004BC27E /* AppDelegate.swift in Sources */,
 				8379AA5E232A2B6B004BC27E /* SelectCountryViewController.swift in Sources */,
 			);
