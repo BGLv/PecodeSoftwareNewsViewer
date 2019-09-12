@@ -1,4 +1,7 @@
 # PecodeSoftwareNewsViewer
 News viewer client application for newsapi.org
 
-![](PecodeSoftwareNewsViewer1.gif)  ![](PecodeSoftwareNewsViewer2.gif)  ![](PecodeSoftwareNewsViewer3.gif)
+![](PecodeSoftwareNewsViewer1.gif) ![](PecodeSoftwareNewsViewer2.gif)  ![](PecodeSoftwareNewsViewer3.gif) 
+
+
+![](PecodeSoftwareNewsViewer4.gif)
